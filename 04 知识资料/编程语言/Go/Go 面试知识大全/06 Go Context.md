@@ -1,0 +1,114 @@
+﻿---
+title: 06 Go Context
+source: "[[04 知识资料/编程语言/Go/source/Go 原始 XMind 解析.md]]"
+created: 2026-06-12
+tags:
+  - Go
+  - 编程语言
+  - 面试
+status: 已拆分
+---
+
+# 06 Go Context
+
+> 来源：[[04 知识资料/编程语言/Go/source/Go 原始 XMind 解析.md]]
+  - 6. context相关
+    - 1、context 结构是什么样的？context 使用场景和用途？
+      - 学习链接：https://www.topgoer.cn/docs/gozhuanjia/chapter055.3-context
+        - 参考链接：go context详解 - 卷毛狒狒 - 博客园www.cnblogs.com/juanmaofeifei/p/14439957.html
+      - 答：Go 的 Context 的数据结构包含 Deadline，Done，Err，Value， Deadline 方法返回一个 time.Time，表示当前 Context 应该结束的时间，ok 则表示有结束时间， Done 方法当 Context 被取消或者超时时候返回的一个 close 的 channel，告诉给 context 相关的函数要停止当 前工作然后返回了， Err 表示 context 被取消的原因， Value 方法表示 context 实现共享数据存储的地方，是协程安全的。context 在业务中是经常被使用的，
+        - Deadline()
+          - 该方法返回一个deadline和标识是否已设置deadline的bool值，如果没有设置deadline，则ok == false，此时deadline为一个初始值的time.Time值
+        - Done()
+          - 该方法返回一个channel，需要在select-case语句中使用，如”case <-context.Done():”。
+          - 1. 当context关闭后，Done()返回一个被关闭的管道，关闭的管道仍然是可读的，据此goroutine可以收到关闭请求； 2. 当context还未关闭时，Done()返回nil。
+        - Err()
+          - 该方法描述context关闭的原因。
+          - 关闭原因不同: 因deadline关闭：“context deadline exceeded”； 因主动关闭： “context canceled”。
+          - 当context关闭后，Err()返回context的关闭原因； 当context还未关闭时，Err()返回nil；
+        - Value()
+          - 用于在树状分布的goroutine间传递信息。
+          - Value()方法就是用于此种类型的context，该方法根据key值查询map中的value
+      - 包含类别
+        - emptyCtx
+          - （空标题）
+          - context包中定义了一个空的context， 名为emptyCtx。用于context的根节点，空的context只是简单的实现了Context，本身不包含任何值
+          - context包中定义了一个公用的emptCtx全局变量，名为background
+            - context包提供了4个方法创建不同类型的context，使用这四个方法时如果没有父context，都需要传入backgroud
+              - WithCancel() WithDeadline() WithTimeout() WithValue()
+        - cancelCtx
+          - （空标题）
+          - children中记录了由此context派生的所有child，此context被cancel时会把其中的所有child都cancel掉。 cancelCtx与deadline和value无关，所以只需要实现Done()和Err()外露接口即可。
+            - Done()
+              - 按照Context定义，Done()接口只需要返回一个channel即可，对于cancelCtx来说只需要返回成员变量done即可。
+              - （空标题）
+              - 由于cancelCtx没有指定初始化函数，所以cancelCtx.done可能还未分配，所以需要考虑初始化。 cancelCtx.done会在context被cancel时关闭，所以cancelCtx.done的值一般经历如下三个阶段： nil –> chan struct{} –> closed chan
+            - Err()
+              - Err()只需要返回一个error告知context被关闭的原因。对于cancelCtx来说只需要返回成员变量err即可
+              - （空标题）
+              - cancelCtx.err默认是nil，在context被cancel时指定一个error变量： var Canceled = errors.New("context canceled")。
+            - cancel()
+              - cancel()内部方法是理解cancelCtx的最关键的方法，其作用是关闭自己和其后代，其后代存储在cancelCtx.children的map中，其中key值即后代对象，value值并没有意义，这里使用map只是为了方便查询而已。
+              - （空标题）
+            - WithCancel()
+              - WithCancel()方法作了三件事： 1. 初始化一个cancelCtx实例 2. 将cancelCtx实例添加到其父节点的children中(如果父节点也可以被cancel的话) 3. 返回cancelCtx实例和cancel()方法
+              - （空标题）
+              - 自身添加到父节点的过程说明： 1. 如果父节点也支持cancel，也就是说其父节点肯定有children成员，那么把新context添加到children里即可； 2. 如果父节点不支持cancel，就继续向上查询，直到找到一个支持cancel的节点，把新context添加到children里； 3. 如果所有的父节点均不支持cancel，则启动一个协程等待父节点结束，然后再把当前context结束。
+        - timerCtx
+          - （空标题）
+            - deadline: 指定最后期限，比如context将2018.10.20 00:00:00之时自动结束
+            - timeout: 指定最长存活时间，比如context将在30s后结束。
+          - timerCtx在cancelCtx基础上增加了deadline用于标示自动cancel的最终时间，而timer就是一个触发自动cancel的定时器。
+            - 衍生出WithDeadline()和WithTimeout()。
+          - timerCtx在cancelCtx基础上还需要实现Deadline()和cancel()方法，其中cancel()方法是重写的。
+            - Deadline()
+              - Deadline()方法仅仅是返回timerCtx.deadline而矣。而timerCtx.deadline是WithDeadline()或WithTimeout()方法设置的。
+            - cancel()
+              - cancel()方法基本继承cancelCtx，只需要额外把timer关闭。
+              - timerCtx被关闭后，timerCtx.cancelCtx.err将会存储关闭原因： 1. 如果deadline到来之前手动关闭，则关闭原因与cancelCtx显示一致； 2. 如果deadline到来时自动关闭，则原因为：”context deadline exceeded”
+            - WithDeadline()
+              - WithDeadline()方法实现步骤如下： 1. 初始化一个timerCtx实例 2.将timerCtx实例添加到其父节点的children中(如果父节点也可以被cancel的话) 3.启动定时器，定时器到期后会自动cancel本context 4.返回timerCtx实例和cancel()方法
+              - timerCtx类型的context不仅支持手动cancel，也会在定时器到来后自动cancel。
+            - WithTimeout()
+              - WithTimeout()实际调用了WithDeadline，二者实现原理一致。
+                - （空标题）
+              - 子主题 2
+        - valueCtx
+          - （空标题）
+          - valueCtx只是在Context基础上增加了一个key-value对，用于在各级协程间传递一些数据。
+          - valueCtx既不需要cancel，也不需要deadline，那么只需要实现Value()接口即可。
+            - Value（）
+              - （空标题）
+              - valueCtx.key和valueCtx.val分别代表其key和value值
+              - 当前context查找不到key时，会向父节点查找，如果查询不到则最终返回interface{}。也就是说，可以通过子context查询到父的value值。
+            - WithValue（）
+              - （空标题）
+      - 其主要的应用 ：
+        - 1：上下文控制，2：多个 goroutine 之间的数据交互等，3：超时控制：到某个时间点超时，过多久超时。
+      - 总结
+        - Context仅仅是一个接口定义，根据实现的不同，可以衍生出不同的context类型
+        - cancelCtx实现了Context接口，通过WithCancel()创建cancelCtx实例；
+        - timerCtx实现了Context接口，通过WithDeadline()和WithTimeout()创建timerCtx实例；
+        - valueCtx实现了Context接口，通过WithValue()创建valueCtx实例；
+        - 三种context实例可互为父节点，从而可以组合成不同的应用形式；
+    - context在go中一般可以用来做什么？
+      - context 包提供了一种管理多个 goroutine 之间的截止时间、取消信号和请求范围数据的方法
+      - context常见的用途
+        - 取消信号
+          - context 可以用来向多个 goroutine 传递取消信号。当一个 goroutine 需要取消其他 goroutine 时，可以调用 context 的 CancelFunc。
+          - 例如，在处理 HTTP 请求时，如果客户端关闭了连接，可以使用 context 取消所有相关的后台操作。
+        - 截止时间/超时控制
+          - context 可以设置一个截止时间或超时。当超过这个时间或超时发生时，context 会自动取消操作。
+          - 例如，在数据库查询或网络请求时，可以使用 context 设置一个超时时间，以防止长时间的等待。
+        - 传递请求范围的数据
+          - context 可以在多个 goroutine 之间传递请求范围的数据，例如请求的唯一 ID、用户认证信息等。
+          - 例如，在处理 HTTP 请求时，可以将请求的元数据存储在 context 中，并在各个处理函数之间传递这些数据。
+        - 创建带取消功能的 context
+          - （空标题）
+        - 创建带超时的 context
+          - （空标题）
+        - 传递请求范围的数据
+          - （空标题）
+      - 常用函数
+        - 1. context.Background(): 返回一个空的 Context，通常用于根 Context。 2. context.TODO(): 返回一个空的 Context，用于暂时不知道该使用什么 Context 的情况。 3. context.WithCancel(parent Context) (Context, CancelFunc): 创建一个可以取消的 Context。 4. context.WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc): 创建一个带超时的 Context。 5. context.WithDeadline(parent Context, d time.Time) (Context, CancelFunc): 创建一个带截止时间的 Context。 6. context.WithValue(parent Context, key, val interface{}) Context: 创建一个携带值的 Context。
+

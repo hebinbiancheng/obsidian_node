@@ -1,0 +1,21 @@
+.DS_Store
+Thumbs.db
+
+# Obsidian local state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/*/data.json
+.obsidian/plugins/*/*.bak*
+.obsidian/text-generator.json
+
+# Local AI/plugin caches and secrets
+.claudian/
+.smart-env/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.log
+tmp_*
+conflict-files-obsidian-git.md

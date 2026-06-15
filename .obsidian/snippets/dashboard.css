@@ -1,0 +1,37 @@
+.markdown-preview-view:has(h1[data-heading="首页仪表盘"]) {
+  --dashboard-border: color-mix(in srgb, var(--background-modifier-border) 80%, transparent);
+  --dashboard-surface: color-mix(in srgb, var(--background-secondary) 92%, var(--background-primary));
+}
+
+.markdown-preview-view:has(h1[data-heading="首页仪表盘"]) h1 {
+  margin-bottom: 0.75rem;
+}
+
+.markdown-preview-view:has(h1[data-heading="首页仪表盘"]) .callout {
+  border: 1px solid var(--dashboard-border);
+  border-radius: 8px;
+  background: var(--dashboard-surface);
+}
+
+.markdown-preview-view:has(h1[data-heading="首页仪表盘"]) h2 {
+  margin-top: 1.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--dashboard-border);
+}
+
+.markdown-preview-view:has(h1[data-heading="首页仪表盘"]) table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.markdown-preview-view:has(h1[data-heading="首页仪表盘"]) th,
+.markdown-preview-view:has(h1[data-heading="首页仪表盘"]) td {
+  border-color: var(--dashboard-border);
+}
+
+.markdown-preview-view:has(h1[data-heading="首页仪表盘"]) .block-language-button {
+  display: inline-block;
+  min-width: 180px;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+}
