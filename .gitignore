@@ -3,19 +3,25 @@
 Thumbs.db
 desktop.ini
 
-# Local AI/tool caches
-.claude/
-.claudian/
-.smart-env/
-
-# Obsidian local workspace state
+# Obsidian local state
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/cache/
+.obsidian/plugins/*/data.json
+.obsidian/plugins/*/*.bak*
+.obsidian/text-generator.json
 
-# Large or machine-local plugin data
-.obsidian/plugins/smart-connections/data.json
+# Local AI/plugin caches and secrets
+.claude/
+.claudian/
+.smart-env/
 .obsidian/plugins/smart-connections/.smart-env/
 
-# Git plugin local backup/conflict folders
+# Temporary files
 .trash/
+*.tmp
+*.temp
+*.bak
+*.log
+tmp_*
+conflict-files-obsidian-git.md
