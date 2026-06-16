@@ -1,0 +1,37 @@
+{
+  "cascadeColors": true,
+  "colorBackground": true,
+  "palette": [
+    {
+      "id": "Dm05YPG5pQT4Qwe-kME_n",
+      "name": "红",
+      "value": "#e60505"
+    },
+    {
+      "id": "wMliA9DDY99DNrAk3M0G4",
+      "name": "灰",
+      "value": "#b3adad"
+    },
+    {
+      "id": "_vjdlCdJx_BWqR5lMxeee",
+      "name": "紫",
+      "value": "#6a43c7"
+    },
+    {
+      "id": "Q1cTdGlyd9wja-926k5yE",
+      "name": "绿",
+      "value": "#16dd08"
+    },
+    {
+      "id": "pALK55q_g9FYggjdW4l3K",
+      "name": "黄",
+      "value": "#ead757"
+    },
+    {
+      "id": "REGVPQJCeO_pCG5ieut1u",
+      "name": "蓝",
+      "value": "#0aebe7"
+    }
+  ],
+  "fileColors": []
+}

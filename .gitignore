@@ -1,0 +1,21 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local AI/tool caches
+.claude/
+.claudian/
+.smart-env/
+
+# Obsidian local workspace state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# Large or machine-local plugin data
+.obsidian/plugins/smart-connections/data.json
+.obsidian/plugins/smart-connections/.smart-env/
+
+# Git plugin local backup/conflict folders
+.trash/

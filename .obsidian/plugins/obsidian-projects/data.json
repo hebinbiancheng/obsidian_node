@@ -1,0 +1,121 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "fieldConfig": {},
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [],
+      "isDefault": false,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "日程安排",
+          "recursive": false
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {},
+          "filter": {
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "aea3e596-fbd3-49fc-ad91-030746783b41",
+          "name": "表格",
+          "type": "table"
+        }
+      ],
+      "id": "1337c9dd-d0c9-41c4-ac6d-c25a06f4b745",
+      "name": "日程安排"
+    },
+    {
+      "fieldConfig": {},
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [],
+      "isDefault": false,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "日程安排",
+          "recursive": false
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {},
+          "filter": {
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "45d3a981-1dab-4309-97f8-eca2cd1b1165",
+          "name": "表格",
+          "type": "table"
+        }
+      ],
+      "id": "aea97e43-d6d7-4654-b0af-bacadd139397",
+      "name": "工作记录"
+    },
+    {
+      "fieldConfig": {},
+      "defaultName": "",
+      "templates": [],
+      "excludedNotes": [],
+      "isDefault": false,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "学习记录",
+          "recursive": true
+        }
+      },
+      "newNotesFolder": "",
+      "views": [
+        {
+          "config": {},
+          "filter": {
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "1fb5ffe9-6982-4fcf-9997-9db8737f6695",
+          "name": "表格",
+          "type": "table"
+        }
+      ],
+      "id": "5d426b37-bde1-4618-a32e-6c7290fb88de",
+      "name": "学习记录"
+    }
+  ],
+  "archives": [],
+  "preferences": {
+    "projectSizeLimit": 1000,
+    "frontmatter": {
+      "quoteStrings": "PLAIN"
+    },
+    "commands": [
+      {
+        "project": "aea97e43-d6d7-4654-b0af-bacadd139397",
+        "view": "45d3a981-1dab-4309-97f8-eca2cd1b1165"
+      }
+    ],
+    "linkBehavior": "open-editor"
+  }
+}

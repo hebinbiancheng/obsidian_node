@@ -1,0 +1,7 @@
+{
+	"nodes":[
+		{"id":"562db6da181d3cb7","x":-584,"y":-180,"width":144,"height":51,"type":"text","text":"AI应用商店"},
+		{"id":"c3895919bbac4d29","x":-280,"y":-180,"width":160,"height":51,"type":"text","text":""}
+	],
+	"edges":[]
+}
