@@ -1,0 +1,104 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "hermes-agent",
+  "elements": [
+    {"type":"text","id":"title","x":340,"y":20,"text":"Go GMP 调度模型","fontSize":28,"fontFamily":1,"strokeColor":"#1e1e1e","originalText":"Go GMP 调度模型","autoResize":true},
+
+    {"type":"rectangle","id":"gofunc","x":60,"y":80,"width":160,"height":55,"roundness":{"type":3},"backgroundColor":"#a5d8ff","fillStyle":"solid","strokeColor":"#4a9eed","boundElements":[{"id":"t_gofunc","type":"text"},{"id":"a_gofunc_g","type":"arrow"}]},
+    {"type":"text","id":"t_gofunc","x":65,"y":90,"width":150,"height":25,"text":"go func()","fontSize":18,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"gofunc","originalText":"go func()","autoResize":true},
+
+    {"type":"rectangle","id":"g_goroutine","x":60,"y":170,"width":160,"height":55,"roundness":{"type":3},"backgroundColor":"#a5d8ff","fillStyle":"solid","strokeColor":"#4a9eed","boundElements":[{"id":"t_g","type":"text"},{"id":"a_gofunc_g","type":"arrow"},{"id":"a_g_lrq","type":"arrow"},{"id":"a_g_grq","type":"arrow"}]},
+    {"type":"text","id":"t_g","x":65,"y":180,"width":150,"height":25,"text":"G (goroutine)","fontSize":18,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"g_goroutine","originalText":"G (goroutine)","autoResize":true},
+
+    {"type":"rectangle","id":"p_lrq","x":60,"y":260,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#d0bfff","fillStyle":"solid","strokeColor":"#8b5cf6","boundElements":[{"id":"t_lrq","type":"text"},{"id":"a_g_lrq","type":"arrow"},{"id":"a_lrq_sched","type":"arrow"}]},
+    {"type":"text","id":"t_lrq","x":65,"y":270,"width":170,"height":25,"text":"P 本地队列 (lrq)","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"p_lrq","originalText":"P 本地队列 (lrq)","autoResize":true},
+
+    {"type":"rectangle","id":"grq","x":60,"y":350,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#ffd8a8","fillStyle":"solid","strokeColor":"#f59e0b","boundElements":[{"id":"t_grq","type":"text"},{"id":"a_g_grq","type":"arrow"},{"id":"a_grq_sched","type":"arrow"}]},
+    {"type":"text","id":"t_grq","x":65,"y":360,"width":170,"height":25,"text":"全局队列 (grq)","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"grq","originalText":"全局队列 (grq)","autoResize":true},
+
+    {"type":"rectangle","id":"sysmon","x":60,"y":480,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#ffc9c9","fillStyle":"solid","strokeColor":"#ef4444","boundElements":[{"id":"t_sysmon","type":"text"},{"id":"a_sysmon_netpoll","type":"arrow"},{"id":"a_sysmon_preempt","type":"arrow"}]},
+    {"type":"text","id":"t_sysmon","x":65,"y":490,"width":170,"height":25,"text":"sysmon 监控线程","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"sysmon","originalText":"sysmon 监控线程","autoResize":true},
+
+    {"type":"rectangle","id":"netpoll","x":60,"y":570,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#c3fae8","fillStyle":"solid","strokeColor":"#06b6d4","boundElements":[{"id":"t_netpoll","type":"text"},{"id":"a_sysmon_netpoll","type":"arrow"},{"id":"a_netpoll_find","type":"arrow"}]},
+    {"type":"text","id":"t_netpoll","x":65,"y":580,"width":170,"height":25,"text":"netpoll","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"netpoll","originalText":"netpoll","autoResize":true},
+
+    {"type":"rectangle","id":"m_bind","x":320,"y":80,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#b2f2bb","fillStyle":"solid","strokeColor":"#22c55e","boundElements":[{"id":"t_mbind","type":"text"},{"id":"a_lrq_sched","type":"arrow"},{"id":"a_grq_sched","type":"arrow"},{"id":"a_netpoll_find","type":"arrow"},{"id":"a_sched_find","type":"arrow"}]},
+    {"type":"text","id":"t_mbind","x":325,"y":90,"width":170,"height":25,"text":"M 绑定 P","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"m_bind","originalText":"M 绑定 P","autoResize":true},
+
+    {"type":"rectangle","id":"schedule","x":320,"y":170,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#b2f2bb","fillStyle":"solid","strokeColor":"#22c55e","boundElements":[{"id":"t_schedule","type":"text"},{"id":"a_sched_find","type":"arrow"},{"id":"a_sched_loop","type":"arrow"}]},
+    {"type":"text","id":"t_schedule","x":325,"y":180,"width":170,"height":25,"text":"g0: schedule()","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"schedule","originalText":"g0: schedule()","autoResize":true},
+
+    {"type":"rectangle","id":"findrunnable","x":320,"y":260,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#d0bfff","fillStyle":"solid","strokeColor":"#8b5cf6","boundElements":[{"id":"t_findr","type":"text"},{"id":"a_sched_find","type":"arrow"},{"id":"a_find_exec","type":"arrow"},{"id":"a_find_steal","type":"arrow"}]},
+    {"type":"text","id":"t_findr","x":325,"y":270,"width":170,"height":25,"text":"findRunnable()","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"findrunnable","originalText":"findRunnable()","autoResize":true},
+
+    {"type":"rectangle","id":"execute","x":320,"y":350,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#a5d8ff","fillStyle":"solid","strokeColor":"#4a9eed","boundElements":[{"id":"t_execute","type":"text"},{"id":"a_find_exec","type":"arrow"},{"id":"a_exec_user","type":"arrow"},{"id":"a_user_back","type":"arrow"}]},
+    {"type":"text","id":"t_execute","x":325,"y":360,"width":170,"height":25,"text":"execute + gogo","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"execute","originalText":"execute + gogo","autoResize":true},
+
+    {"type":"rectangle","id":"userfunc","x":320,"y":440,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#a5d8ff","fillStyle":"solid","strokeColor":"#4a9eed","boundElements":[{"id":"t_userfunc","type":"text"},{"id":"a_exec_user","type":"arrow"},{"id":"a_user_end","type":"arrow"},{"id":"a_user_gosched","type":"arrow"},{"id":"a_user_gopark","type":"arrow"},{"id":"a_sysmon_preempt","type":"arrow"}]},
+    {"type":"text","id":"t_userfunc","x":325,"y":450,"width":170,"height":25,"text":"G 执行用户函数","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"userfunc","originalText":"G 执行用户函数","autoResize":true},
+
+    {"type":"rectangle","id":"steal","x":570,"y":260,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#fff3bf","fillStyle":"solid","strokeColor":"#f59e0b","boundElements":[{"id":"t_steal","type":"text"},{"id":"a_find_steal","type":"arrow"}]},
+    {"type":"text","id":"t_steal","x":575,"y":270,"width":170,"height":25,"text":"Work Stealing","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"steal","originalText":"Work Stealing","autoResize":true},
+
+    {"type":"arrow","id":"a_gofunc_g","x":140,"y":135,"width":0,"height":35,"points":[[0,0],[0,35]],"endArrowhead":"arrow","strokeColor":"#4a9eed","startBinding":{"elementId":"gofunc","fixedPoint":[0.5,1]},"endBinding":{"elementId":"g_goroutine","fixedPoint":[0.5,0]}},
+
+    {"type":"arrow","id":"a_g_lrq","x":140,"y":225,"width":0,"height":35,"points":[[0,0],[0,35]],"endArrowhead":"arrow","strokeColor":"#8b5cf6","startBinding":{"elementId":"g_goroutine","fixedPoint":[0.5,1]},"endBinding":{"elementId":"p_lrq","fixedPoint":[0.5,0]},"boundElements":[{"id":"t_a_g_lrq","type":"text"}]},
+    {"type":"text","id":"t_a_g_lrq","x":148,"y":232,"width":80,"height":20,"text":"放入 lrq","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_g_lrq","originalText":"放入 lrq","autoResize":true},
+
+    {"type":"arrow","id":"a_g_grq","x":220,"y":197,"width":40,"height":180,"points":[[0,0],[40,180]],"endArrowhead":"arrow","strokeColor":"#f59e0b","strokeStyle":"dashed","startBinding":{"elementId":"g_goroutine","fixedPoint":[1,0.5]},"endBinding":{"elementId":"grq","fixedPoint":[0,0.5]},"boundElements":[{"id":"t_a_g_grq","type":"text"}]},
+    {"type":"text","id":"t_a_g_grq","x":245,"y":270,"width":80,"height":20,"text":"lrq 满","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_g_grq","originalText":"lrq 满","autoResize":true},
+
+    {"type":"arrow","id":"a_sysmon_netpoll","x":150,"y":535,"width":0,"height":35,"points":[[0,0],[0,35]],"endArrowhead":"arrow","strokeColor":"#ef4444","startBinding":{"elementId":"sysmon","fixedPoint":[0.5,1]},"endBinding":{"elementId":"netpoll","fixedPoint":[0.5,0]},"boundElements":[{"id":"t_a_sysmon_netpoll","type":"text"}]},
+    {"type":"text","id":"t_a_sysmon_netpoll","x":158,"y":542,"width":80,"height":20,"text":"唤醒","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_sysmon_netpoll","originalText":"唤醒","autoResize":true},
+
+    {"type":"arrow","id":"a_sysmon_preempt","x":240,"y":507,"width":80,"height":-40,"points":[[0,0],[80,-40]],"endArrowhead":"arrow","strokeColor":"#ef4444","strokeStyle":"dashed","startBinding":{"elementId":"sysmon","fixedPoint":[1,0.5]},"endBinding":{"elementId":"userfunc","fixedPoint":[0,0.3]},"boundElements":[{"id":"t_a_sysmon_preempt","type":"text"}]},
+    {"type":"text","id":"t_a_sysmon_preempt","x":265,"y":470,"width":80,"height":20,"text":"抢占信号","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_sysmon_preempt","originalText":"抢占信号","autoResize":true},
+
+    {"type":"arrow","id":"a_lrq_sched","x":240,"y":287,"width":80,"height":-80,"points":[[0,0],[80,-80]],"endArrowhead":"arrow","strokeColor":"#8b5cf6","startBinding":{"elementId":"p_lrq","fixedPoint":[1,0.5]},"endBinding":{"elementId":"m_bind","fixedPoint":[0,0.5]},"boundElements":[{"id":"t_a_lrq_sched","type":"text"}]},
+    {"type":"text","id":"t_a_lrq_sched","x":265,"y":230,"width":80,"height":20,"text":"本地优先","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_lrq_sched","originalText":"本地优先","autoResize":true},
+
+    {"type":"arrow","id":"a_grq_sched","x":240,"y":377,"width":80,"height":-270,"points":[[0,0],[80,-270]],"endArrowhead":"arrow","strokeColor":"#f59e0b","startBinding":{"elementId":"grq","fixedPoint":[1,0.5]},"endBinding":{"elementId":"m_bind","fixedPoint":[0,0.5]},"boundElements":[{"id":"t_a_grq_sched","type":"text"}]},
+    {"type":"text","id":"t_a_grq_sched","x":265,"y":220,"width":80,"height":20,"text":"全局队列","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_grq_sched","originalText":"全局队列","autoResize":true},
+
+    {"type":"arrow","id":"a_netpoll_find","x":240,"y":597,"width":80,"height":-310,"points":[[0,0],[80,-310]],"endArrowhead":"arrow","strokeColor":"#06b6d4","startBinding":{"elementId":"netpoll","fixedPoint":[1,0.5]},"endBinding":{"elementId":"findrunnable","fixedPoint":[0,0.5]},"boundElements":[{"id":"t_a_netpoll_find","type":"text"}]},
+    {"type":"text","id":"t_a_netpoll_find","x":265,"y":425,"width":80,"height":20,"text":"网络就绪","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_netpoll_find","originalText":"网络就绪","autoResize":true},
+
+    {"type":"arrow","id":"a_sched_find","x":410,"y":225,"width":0,"height":35,"points":[[0,0],[0,35]],"endArrowhead":"arrow","strokeColor":"#22c55e","startBinding":{"elementId":"schedule","fixedPoint":[0.5,1]},"endBinding":{"elementId":"findrunnable","fixedPoint":[0.5,0]}},
+
+    {"type":"arrow","id":"a_find_exec","x":410,"y":315,"width":0,"height":35,"points":[[0,0],[0,35]],"endArrowhead":"arrow","strokeColor":"#8b5cf6","startBinding":{"elementId":"findrunnable","fixedPoint":[0.5,1]},"endBinding":{"elementId":"execute","fixedPoint":[0.5,0]}},
+
+    {"type":"arrow","id":"a_exec_user","x":410,"y":405,"width":0,"height":35,"points":[[0,0],[0,35]],"endArrowhead":"arrow","strokeColor":"#4a9eed","startBinding":{"elementId":"execute","fixedPoint":[0.5,1]},"endBinding":{"elementId":"userfunc","fixedPoint":[0.5,0]},"boundElements":[{"id":"t_a_exec_user","type":"text"}]},
+    {"type":"text","id":"t_a_exec_user","x":418,"y":412,"width":80,"height":20,"text":"g0 -> g","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_exec_user","originalText":"g0 -> g","autoResize":true},
+
+    {"type":"arrow","id":"a_find_steal","x":500,"y":287,"width":70,"height":0,"points":[[0,0],[70,0]],"endArrowhead":"arrow","strokeColor":"#f59e0b","strokeStyle":"dashed","startBinding":{"elementId":"findrunnable","fixedPoint":[1,0.5]},"endBinding":{"elementId":"steal","fixedPoint":[0,0.5]},"boundElements":[{"id":"t_a_find_steal","type":"text"}]},
+    {"type":"text","id":"t_a_find_steal","x":505,"y":270,"width":60,"height":20,"text":"窃取","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_find_steal","originalText":"窃取","autoResize":true},
+
+    {"type":"rectangle","id":"end_box","x":570,"y":440,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#b2f2bb","fillStyle":"solid","strokeColor":"#22c55e","boundElements":[{"id":"t_end","type":"text"},{"id":"a_user_end","type":"arrow"}]},
+    {"type":"text","id":"t_end","x":575,"y":450,"width":170,"height":25,"text":"结束 (goexit)","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"end_box","originalText":"结束 (goexit)","autoResize":true},
+
+    {"type":"rectangle","id":"gosched_box","x":570,"y":520,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#fff3bf","fillStyle":"solid","strokeColor":"#f59e0b","boundElements":[{"id":"t_gosched","type":"text"},{"id":"a_user_gosched","type":"arrow"}]},
+    {"type":"text","id":"t_gosched","x":575,"y":530,"width":170,"height":25,"text":"Gosched","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"gosched_box","originalText":"Gosched","autoResize":true},
+
+    {"type":"rectangle","id":"gopark_box","x":570,"y":600,"width":180,"height":55,"roundness":{"type":3},"backgroundColor":"#ffd8a8","fillStyle":"solid","strokeColor":"#f59e0b","boundElements":[{"id":"t_gopark","type":"text"},{"id":"a_user_gopark","type":"arrow"}]},
+    {"type":"text","id":"t_gopark","x":575,"y":610,"width":170,"height":25,"text":"gopark (阻塞)","fontSize":16,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"gopark_box","originalText":"gopark (阻塞)","autoResize":true},
+
+    {"type":"arrow","id":"a_user_end","x":500,"y":467,"width":70,"height":0,"points":[[0,0],[70,0]],"endArrowhead":"arrow","strokeColor":"#22c55e","startBinding":{"elementId":"userfunc","fixedPoint":[1,0.5]},"endBinding":{"elementId":"end_box","fixedPoint":[0,0.5]},"boundElements":[{"id":"t_a_user_end","type":"text"}]},
+    {"type":"text","id":"t_a_user_end","x":505,"y":450,"width":60,"height":20,"text":"返回","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_user_end","originalText":"返回","autoResize":true},
+
+    {"type":"arrow","id":"a_user_gosched","x":500,"y":495,"width":70,"height":52,"points":[[0,0],[70,52]],"endArrowhead":"arrow","strokeColor":"#f59e0b","startBinding":{"elementId":"userfunc","fixedPoint":[1,0.5]},"endBinding":{"elementId":"gosched_box","fixedPoint":[0,0.5]},"boundElements":[{"id":"t_a_user_gosched","type":"text"}]},
+    {"type":"text","id":"t_a_user_gosched","x":505,"y":510,"width":60,"height":20,"text":"让出","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_user_gosched","originalText":"让出","autoResize":true},
+
+    {"type":"arrow","id":"a_user_gopark","x":500,"y":495,"width":70,"height":132,"points":[[0,0],[70,132]],"endArrowhead":"arrow","strokeColor":"#f59e0b","startBinding":{"elementId":"userfunc","fixedPoint":[1,0.5]},"endBinding":{"elementId":"gopark_box","fixedPoint":[0,0.5]},"boundElements":[{"id":"t_a_user_gopark","type":"text"}]},
+    {"type":"text","id":"t_a_user_gopark","x":505,"y":550,"width":60,"height":20,"text":"阻塞","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_user_gopark","originalText":"阻塞","autoResize":true},
+
+    {"type":"arrow","id":"a_user_back","x":410,"y":495,"width":0,"height":-40,"points":[[0,0],[0,-40]],"endArrowhead":"arrow","strokeColor":"#4a9eed","strokeStyle":"dashed","startBinding":{"elementId":"userfunc","fixedPoint":[0.5,1]},"endBinding":{"elementId":"execute","fixedPoint":[0.5,1]},"boundElements":[{"id":"t_a_user_back","type":"text"}]},
+    {"type":"text","id":"t_a_user_back","x":418,"y":465,"width":80,"height":20,"text":"g -> g0","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_user_back","originalText":"g -> g0","autoResize":true},
+
+    {"type":"arrow","id":"a_sched_loop","x":500,"y":197,"width":70,"height":0,"points":[[0,0],[70,0]],"endArrowhead":"arrow","strokeColor":"#22c55e","strokeStyle":"dashed","startBinding":{"elementId":"schedule","fixedPoint":[1,0.5]},"endBinding":{"elementId":"m_bind","fixedPoint":[1,0.5]},"boundElements":[{"id":"t_a_sched_loop","type":"text"}]},
+    {"type":"text","id":"t_a_sched_loop","x":505,"y":180,"width":60,"height":20,"text":"循环","fontSize":14,"fontFamily":1,"strokeColor":"#1e1e1e","textAlign":"center","verticalAlign":"middle","containerId":"a_sched_loop","originalText":"循环","autoResize":true}
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff"
+  }
+}

@@ -1,0 +1,925 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "hermes-agent",
+  "elements": [
+    {
+      "type": "text",
+      "id": "title",
+      "x": 310,
+      "y": 15,
+      "text": "Redis 核心架构图",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "originalText": "Redis 核心架构图",
+      "autoResize": true
+    },
+
+    {
+      "type": "rectangle",
+      "id": "l1",
+      "x": 80,
+      "y": 65,
+      "width": 740,
+      "height": 85,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid",
+      "strokeColor": "#4a9eed",
+      "boundElements": [
+        { "id": "a_l1_l2", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l1",
+      "x": 90,
+      "y": 68,
+      "text": "客户端层",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "originalText": "客户端层",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l1_c1",
+      "x": 110,
+      "y": 95,
+      "width": 190,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#4a9eed",
+      "boundElements": [
+        { "id": "t_l1_c1", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l1_c1",
+      "x": 115,
+      "y": 100,
+      "width": 180,
+      "height": 25,
+      "text": "Java 客户端",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l1_c1",
+      "originalText": "Java 客户端",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l1_c2",
+      "x": 330,
+      "y": 95,
+      "width": 190,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#4a9eed",
+      "boundElements": [
+        { "id": "t_l1_c2", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l1_c2",
+      "x": 335,
+      "y": 100,
+      "width": 180,
+      "height": 25,
+      "text": "Python 客户端",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l1_c2",
+      "originalText": "Python 客户端",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l1_c3",
+      "x": 550,
+      "y": 95,
+      "width": 190,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#4a9eed",
+      "boundElements": [
+        { "id": "t_l1_c3", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l1_c3",
+      "x": 555,
+      "y": 100,
+      "width": 180,
+      "height": 25,
+      "text": "Redis-CLI",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l1_c3",
+      "originalText": "Redis-CLI",
+      "autoResize": true
+    },
+
+    {
+      "type": "arrow",
+      "id": "a_l1_l2",
+      "x": 450,
+      "y": 150,
+      "width": 0,
+      "height": 40,
+      "points": [[0, 0], [0, 40]],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "startBinding": { "elementId": "l1", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "l2", "fixedPoint": [0.5, 0] }
+    },
+
+    {
+      "type": "rectangle",
+      "id": "l2",
+      "x": 80,
+      "y": 190,
+      "width": 740,
+      "height": 85,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#c3fae8",
+      "fillStyle": "solid",
+      "strokeColor": "#06b6d4",
+      "boundElements": [
+        { "id": "a_l1_l2", "type": "arrow" },
+        { "id": "a_l2_l3", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l2",
+      "x": 90,
+      "y": 193,
+      "text": "事件驱动层（IO 多路复用）",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "originalText": "事件驱动层（IO 多路复用）",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l2_e1",
+      "x": 150,
+      "y": 220,
+      "width": 240,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#06b6d4",
+      "boundElements": [
+        { "id": "t_l2_e1", "type": "text" },
+        { "id": "a_l2_int", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l2_e1",
+      "x": 155,
+      "y": 225,
+      "width": 230,
+      "height": 25,
+      "text": "epoll / select / kqueue",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l2_e1",
+      "originalText": "epoll / select / kqueue",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l2_e2",
+      "x": 500,
+      "y": 220,
+      "width": 200,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#06b6d4",
+      "boundElements": [
+        { "id": "t_l2_e2", "type": "text" },
+        { "id": "a_l2_int", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l2_e2",
+      "x": 505,
+      "y": 225,
+      "width": 190,
+      "height": 25,
+      "text": "事件分发器",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l2_e2",
+      "originalText": "事件分发器",
+      "autoResize": true
+    },
+    {
+      "type": "arrow",
+      "id": "a_l2_int",
+      "x": 390,
+      "y": 241,
+      "width": 110,
+      "height": 0,
+      "points": [[0, 0], [110, 0]],
+      "endArrowhead": "arrow",
+      "strokeColor": "#06b6d4",
+      "strokeWidth": 2,
+      "startBinding": { "elementId": "l2_e1", "fixedPoint": [1, 0.5] },
+      "endBinding": { "elementId": "l2_e2", "fixedPoint": [0, 0.5] }
+    },
+
+    {
+      "type": "arrow",
+      "id": "a_l2_l3",
+      "x": 450,
+      "y": 275,
+      "width": 0,
+      "height": 40,
+      "points": [[0, 0], [0, 40]],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "startBinding": { "elementId": "l2", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "l3", "fixedPoint": [0.5, 0] }
+    },
+
+    {
+      "type": "rectangle",
+      "id": "l3",
+      "x": 80,
+      "y": 315,
+      "width": 740,
+      "height": 85,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#d0bfff",
+      "fillStyle": "solid",
+      "strokeColor": "#8b5cf6",
+      "boundElements": [
+        { "id": "a_l2_l3", "type": "arrow" },
+        { "id": "a_l3_l4", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l3",
+      "x": 90,
+      "y": 318,
+      "text": "命令处理层（单线程）",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "originalText": "命令处理层（单线程）",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l3_p1",
+      "x": 110,
+      "y": 345,
+      "width": 170,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#8b5cf6",
+      "boundElements": [
+        { "id": "t_l3_p1", "type": "text" },
+        { "id": "a_l3_i1", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l3_p1",
+      "x": 115,
+      "y": 350,
+      "width": 160,
+      "height": 25,
+      "text": "命令解析",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l3_p1",
+      "originalText": "命令解析",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l3_p2",
+      "x": 365,
+      "y": 345,
+      "width": 170,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#8b5cf6",
+      "boundElements": [
+        { "id": "t_l3_p2", "type": "text" },
+        { "id": "a_l3_i1", "type": "arrow" },
+        { "id": "a_l3_i2", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l3_p2",
+      "x": 370,
+      "y": 350,
+      "width": 160,
+      "height": 25,
+      "text": "命令执行",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l3_p2",
+      "originalText": "命令执行",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l3_p3",
+      "x": 620,
+      "y": 345,
+      "width": 170,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#8b5cf6",
+      "boundElements": [
+        { "id": "t_l3_p3", "type": "text" },
+        { "id": "a_l3_i2", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l3_p3",
+      "x": 625,
+      "y": 350,
+      "width": 160,
+      "height": 25,
+      "text": "响应返回",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l3_p3",
+      "originalText": "响应返回",
+      "autoResize": true
+    },
+    {
+      "type": "arrow",
+      "id": "a_l3_i1",
+      "x": 280,
+      "y": 366,
+      "width": 85,
+      "height": 0,
+      "points": [[0, 0], [85, 0]],
+      "endArrowhead": "arrow",
+      "strokeColor": "#8b5cf6",
+      "strokeWidth": 2,
+      "startBinding": { "elementId": "l3_p1", "fixedPoint": [1, 0.5] },
+      "endBinding": { "elementId": "l3_p2", "fixedPoint": [0, 0.5] }
+    },
+    {
+      "type": "arrow",
+      "id": "a_l3_i2",
+      "x": 535,
+      "y": 366,
+      "width": 85,
+      "height": 0,
+      "points": [[0, 0], [85, 0]],
+      "endArrowhead": "arrow",
+      "strokeColor": "#8b5cf6",
+      "strokeWidth": 2,
+      "startBinding": { "elementId": "l3_p2", "fixedPoint": [1, 0.5] },
+      "endBinding": { "elementId": "l3_p3", "fixedPoint": [0, 0.5] }
+    },
+
+    {
+      "type": "arrow",
+      "id": "a_l3_l4",
+      "x": 450,
+      "y": 400,
+      "width": 0,
+      "height": 40,
+      "points": [[0, 0], [0, 40]],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "startBinding": { "elementId": "l3", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "l4", "fixedPoint": [0.5, 0] }
+    },
+
+    {
+      "type": "rectangle",
+      "id": "l4",
+      "x": 80,
+      "y": 440,
+      "width": 740,
+      "height": 140,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid",
+      "strokeColor": "#22c55e",
+      "boundElements": [
+        { "id": "a_l3_l4", "type": "arrow" },
+        { "id": "a_l4_l5", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l4",
+      "x": 90,
+      "y": 443,
+      "text": "数据结构层",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "originalText": "数据结构层",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l4_d1",
+      "x": 100,
+      "y": 470,
+      "width": 225,
+      "height": 45,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#22c55e",
+      "boundElements": [
+        { "id": "t_l4_d1", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l4_d1",
+      "x": 105,
+      "y": 475,
+      "width": 215,
+      "height": 25,
+      "text": "String  →  SDS",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l4_d1",
+      "originalText": "String  →  SDS",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l4_d2",
+      "x": 340,
+      "y": 470,
+      "width": 225,
+      "height": 45,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#22c55e",
+      "boundElements": [
+        { "id": "t_l4_d2", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l4_d2",
+      "x": 345,
+      "y": 475,
+      "width": 215,
+      "height": 25,
+      "text": "Hash  →  dict / ziplist",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l4_d2",
+      "originalText": "Hash  →  dict / ziplist",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l4_d3",
+      "x": 580,
+      "y": 470,
+      "width": 220,
+      "height": 45,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#22c55e",
+      "boundElements": [
+        { "id": "t_l4_d3", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l4_d3",
+      "x": 585,
+      "y": 475,
+      "width": 210,
+      "height": 25,
+      "text": "List  →  quicklist",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l4_d3",
+      "originalText": "List  →  quicklist",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l4_d4",
+      "x": 170,
+      "y": 525,
+      "width": 240,
+      "height": 45,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#22c55e",
+      "boundElements": [
+        { "id": "t_l4_d4", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l4_d4",
+      "x": 175,
+      "y": 530,
+      "width": 230,
+      "height": 25,
+      "text": "Set  →  dict",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l4_d4",
+      "originalText": "Set  →  dict",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l4_d5",
+      "x": 440,
+      "y": 525,
+      "width": 280,
+      "height": 45,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#22c55e",
+      "boundElements": [
+        { "id": "t_l4_d5", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l4_d5",
+      "x": 445,
+      "y": 530,
+      "width": 270,
+      "height": 25,
+      "text": "ZSet  →  skiplist + dict",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l4_d5",
+      "originalText": "ZSet  →  skiplist + dict",
+      "autoResize": true
+    },
+
+    {
+      "type": "arrow",
+      "id": "a_l4_l5",
+      "x": 450,
+      "y": 580,
+      "width": 0,
+      "height": 40,
+      "points": [[0, 0], [0, 40]],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "startBinding": { "elementId": "l4", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "l5", "fixedPoint": [0.5, 0] }
+    },
+
+    {
+      "type": "rectangle",
+      "id": "l5",
+      "x": 80,
+      "y": 620,
+      "width": 740,
+      "height": 85,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid",
+      "strokeColor": "#f59e0b",
+      "boundElements": [
+        { "id": "a_l4_l5", "type": "arrow" },
+        { "id": "a_l5_l6", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l5",
+      "x": 90,
+      "y": 623,
+      "text": "持久化层",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "originalText": "持久化层",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l5_s1",
+      "x": 110,
+      "y": 650,
+      "width": 190,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#f59e0b",
+      "boundElements": [
+        { "id": "t_l5_s1", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l5_s1",
+      "x": 115,
+      "y": 655,
+      "width": 180,
+      "height": 25,
+      "text": "RDB 快照",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l5_s1",
+      "originalText": "RDB 快照",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l5_s2",
+      "x": 330,
+      "y": 650,
+      "width": 190,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#f59e0b",
+      "boundElements": [
+        { "id": "t_l5_s2", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l5_s2",
+      "x": 335,
+      "y": 655,
+      "width": 180,
+      "height": 25,
+      "text": "AOF 日志",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l5_s2",
+      "originalText": "AOF 日志",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l5_s3",
+      "x": 550,
+      "y": 650,
+      "width": 190,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#f59e0b",
+      "boundElements": [
+        { "id": "t_l5_s3", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l5_s3",
+      "x": 555,
+      "y": 655,
+      "width": 180,
+      "height": 25,
+      "text": "混合持久化",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l5_s3",
+      "originalText": "混合持久化",
+      "autoResize": true
+    },
+
+    {
+      "type": "arrow",
+      "id": "a_l5_l6",
+      "x": 450,
+      "y": 705,
+      "width": 0,
+      "height": 40,
+      "points": [[0, 0], [0, 40]],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "startBinding": { "elementId": "l5", "fixedPoint": [0.5, 1] },
+      "endBinding": { "elementId": "l6", "fixedPoint": [0.5, 0] }
+    },
+
+    {
+      "type": "rectangle",
+      "id": "l6",
+      "x": 80,
+      "y": 745,
+      "width": 740,
+      "height": 85,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#eebefa",
+      "fillStyle": "solid",
+      "strokeColor": "#ec4899",
+      "boundElements": [
+        { "id": "a_l5_l6", "type": "arrow" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l6",
+      "x": 90,
+      "y": 748,
+      "text": "高可用层",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "originalText": "高可用层",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l6_h1",
+      "x": 110,
+      "y": 775,
+      "width": 190,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#ec4899",
+      "boundElements": [
+        { "id": "t_l6_h1", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l6_h1",
+      "x": 115,
+      "y": 780,
+      "width": 180,
+      "height": 25,
+      "text": "主从复制",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l6_h1",
+      "originalText": "主从复制",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l6_h2",
+      "x": 330,
+      "y": 775,
+      "width": 190,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#ec4899",
+      "boundElements": [
+        { "id": "t_l6_h2", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l6_h2",
+      "x": 335,
+      "y": 780,
+      "width": 180,
+      "height": 25,
+      "text": "哨兵模式",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l6_h2",
+      "originalText": "哨兵模式",
+      "autoResize": true
+    },
+    {
+      "type": "rectangle",
+      "id": "l6_h3",
+      "x": 550,
+      "y": 775,
+      "width": 190,
+      "height": 42,
+      "roundness": { "type": 3 },
+      "backgroundColor": "#ffffff",
+      "fillStyle": "solid",
+      "strokeColor": "#ec4899",
+      "boundElements": [
+        { "id": "t_l6_h3", "type": "text" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_l6_h3",
+      "x": 555,
+      "y": 780,
+      "width": 180,
+      "height": 25,
+      "text": "Redis Cluster",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "l6_h3",
+      "originalText": "Redis Cluster",
+      "autoResize": true
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff"
+  }
+}
