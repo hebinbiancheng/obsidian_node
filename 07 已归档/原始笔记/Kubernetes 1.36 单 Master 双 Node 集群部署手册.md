@@ -485,7 +485,7 @@ kubectl get pods -A
 - [[04 知识资料/Kubernetes/Kubernetes 学习.md]]
 - [[04 知识资料/Kubernetes/Kubernetes 问题.md]]
 - [[04 知识资料/Kubernetes/Kubernetes 答案.md]]
-- [[04 知识资料/运维/120个常用运维技术官网汇总.md]]
+- [[04 知识资料/运维/结构化笔记/01 运维技术栈官网导航|01 运维技术栈官网导航]]
 
 ## 关联笔记
 

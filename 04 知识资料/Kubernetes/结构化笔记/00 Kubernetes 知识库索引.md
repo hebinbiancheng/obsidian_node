@@ -1,14 +1,20 @@
 ---
-type: moc
+type: knowledge
 status: evergreen
-updated: 2026-06-17
+created: "2026-06-17"
+updated: "2026-06-17"
 tags:
   - 知识库
   - Kubernetes
-  - 知识库索引
+  - 容器
+  - 运维
+  - 索引
+aliases:
+  - Kubernetes 知识库索引
+confidence: high
 ---
 
-# Kubernetes 知识库索引
+# 00 Kubernetes 知识库索引
 
 > Kubernetes 容器编排平台的结构化知识库，涵盖架构、对象管理、节点、控制器、面试问答与集群部署。
 
@@ -20,7 +26,6 @@ Kubernetes 是容器编排的事实标准，核心掌握：控制平面与节点
 
 | 序号 | 笔记 | 内容概要 |
 |------|------|----------|
-| 00 | [[04 知识资料/Kubernetes/结构化笔记/00 Kubernetes 知识库索引\|00 Kubernetes 知识库索引]] | 知识库总索引，核心地图与精读优先级 |
 | 01 | [[04 知识资料/Kubernetes/结构化笔记/01 Kubernetes 核心架构与组件\|01 Kubernetes 核心架构与组件]] | 控制平面、节点组件、插件 |
 | 02 | [[04 知识资料/Kubernetes/结构化笔记/02 Kubernetes 对象与资源管理\|02 Kubernetes 对象与资源管理]] | 对象管理、标签/选择器、名字空间、注解、字段选择器、Finalizers |
 | 03 | [[04 知识资料/Kubernetes/结构化笔记/03 Kubernetes 节点管理\|03 Kubernetes 节点管理]] | 节点自注册、节点控制器、逐出速率、资源容量、节点通信 |
@@ -28,21 +33,19 @@ Kubernetes 是容器编排的事实标准，核心掌握：控制平面与节点
 | 05 | [[04 知识资料/Kubernetes/结构化笔记/05 Kubernetes 面试问答精粹\|05 Kubernetes 面试问答精粹]] | 10 个高频面试问题与详细解答 |
 | 06 | [[04 知识资料/Kubernetes/结构化笔记/06 Kubernetes 集群部署实战\|06 Kubernetes 集群部署实战]] | kubeadm 部署关键步骤与排障 |
 
-> 📦 原始文件已归档至 [[07 已归档/原始笔记/Kubernetes 学习\|Kubernetes 学习]]、[[07 已归档/原始笔记/Kubernetes 问题\|Kubernetes 问题]]、[[07 已归档/原始笔记/Kubernetes 答案\|Kubernetes 答案]]、[[07 已归档/原始笔记/Kubernetes 1.36 单 Master 双 Node 集群部署手册\|Kubernetes 1.36 部署手册]]
-
 ## 核心地图
 
 ```text
 Kubernetes 集群
 ├── 控制平面 (Control Plane)
-│   ├── kube-apiserver — 统一入口
-│   ├── etcd — 分布式 KV 存储
-│   ├── kube-scheduler — Pod 调度
-│   └── kube-controller-manager — 控制器
+│   ├── kube-apiserver — 统一入口，所有操作的中枢
+│   ├── etcd — 分布式 KV 存储，集群状态持久化
+│   ├── kube-scheduler — Pod 调度决策
+│   └── kube-controller-manager — 运行各类控制器
 └── 工作节点 (Worker Nodes)
-    ├── kubelet — 节点代理
-    ├── kube-proxy — 网络代理
-    └── Container Runtime — 容器运行时
+    ├── kubelet — 节点代理，管理 Pod 生命周期
+    ├── kube-proxy — 网络代理，实现 Service 规则
+    └── Container Runtime — 容器运行时（containerd 等）
 ```
 
 ## 精读优先级
