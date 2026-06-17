@@ -1,167 +1,117 @@
-﻿{
-    "choices":  [
-                    {
-                        "id":  "qa-capture-link-to-ai-inbox",
-                        "name":  "添加待解析链接",
-                        "type":  "Capture",
-                        "command":  true,
-                        "appendLink":  false,
-                        "captureTo":  "05 网页与链接收藏/待读链接/链接收集箱.md",
-                        "captureToActiveFile":  false,
-                        "captureToCanvasNodeId":  "",
-                        "activeFileWritePosition":  "cursor",
-                        "createFileIfItDoesntExist":  {
-                                                          "enabled":  true,
-                                                          "createWithTemplate":  false,
-                                                          "template":  ""
-                                                      },
-                        "format":  {
-                                       "enabled":  true,
-                                       "format":  "- [ ] {{VALUE}}\n  - 来源类型：网页 / 微信 / 抖音 / 其他\n  - 添加时间：{{DATE:YYYY-MM-DD HH:mm}}\n  - 希望 AI 怎么处理：总结重点 / 提取行动项 / 归档建议\n  - 处理状态：未处理\n"
-                                   },
-                        "insertAfter":  {
-                                            "enabled":  true,
-                                            "after":  "## 待读",
-                                            "insertAtEnd":  true,
-                                            "considerSubsections":  false,
-                                            "createIfNotFound":  true,
-                                            "createIfNotFoundLocation":  "bottom",
-                                            "inline":  false,
-                                            "replaceExisting":  false,
-                                            "blankLineAfterMatchMode":  "auto"
-                                        },
-                        "newLineCapture":  {
-                                               "enabled":  false,
-                                               "direction":  "below"
-                                           },
-                        "prepend":  false,
-                        "task":  false,
-                        "openFile":  true,
-                        "fileOpening":  {
-                                            "location":  "reuse",
-                                            "direction":  "vertical",
-                                            "mode":  "default",
-                                            "focus":  true
-                                        },
-                        "templater":  {
-                                          "afterCapture":  "none"
-                                      }
-                    }
-                ],
-    "inputPrompt":  "single-line",
-    "persistInputPromptDrafts":  true,
-    "useSelectionAsCaptureValue":  true,
-    "devMode":  false,
-    "templateFolderPath":  "06 模板",
-    "announceUpdates":  "major",
-    "version":  "2.12.3",
-    "globalVariables":  {
-
-                        },
-    "onePageInputEnabled":  false,
-    "disableOnlineFeatures":  true,
-    "enableRibbonIcon":  false,
-    "showCaptureNotification":  true,
-    "showInputCancellationNotification":  false,
-    "enableTemplatePropertyTypes":  false,
-    "dateAliases":  {
-                        "t":  "today",
-                        "tm":  "tomorrow",
-                        "yd":  "yesterday",
-                        "nw":  "next week",
-                        "nm":  "next month",
-                        "ny":  "next year",
-                        "lw":  "last week",
-                        "lm":  "last month",
-                        "ly":  "last year"
-                    },
-    "ai":  {
-               "defaultModel":  "Ask me",
-               "defaultSystemPrompt":  "As an AI assistant within Obsidian, your primary goal is to help users manage their ideas and knowledge more effectively. Format your responses using Markdown syntax. Please use the [[Obsidian]] link format. You can write aliases for the links by writing [[Obsidian|the alias after the pipe symbol]]. To use mathematical notation, use LaTeX syntax. LaTeX syntax for larger equations should be on separate lines, surrounded with double dollar signs ($$). You can also inline math expressions by wrapping it in $ symbols. For example, use $$w_{ij}^{\\text{new}}:=w_{ij}^{\\text{current}}+\\eta\\cdot\\delta_j\\cdot x_{ij}$$ on a separate line, but you can write \"($\\eta$ = learning rate, $\\delta_j$ = error term, $x_{ij}$ = input)\" inline.",
-               "promptTemplatesFolderPath":  "",
-               "showAssistant":  true,
-               "providers":  [
-                                 {
-                                     "name":  "OpenAI",
-                                     "endpoint":  "https://api.openai.com/v1",
-                                     "apiKey":  "",
-                                     "models":  [
-                                                    {
-                                                        "name":  "gpt-3.5-turbo",
-                                                        "maxTokens":  4096
-                                                    },
-                                                    {
-                                                        "name":  "gpt-3.5-turbo-16k",
-                                                        "maxTokens":  16384
-                                                    },
-                                                    {
-                                                        "name":  "gpt-3.5-turbo-1106",
-                                                        "maxTokens":  16385
-                                                    },
-                                                    {
-                                                        "name":  "gpt-4",
-                                                        "maxTokens":  8192
-                                                    },
-                                                    {
-                                                        "name":  "gpt-4-32k",
-                                                        "maxTokens":  32768
-                                                    },
-                                                    {
-                                                        "name":  "gpt-4-1106-preview",
-                                                        "maxTokens":  128000
-                                                    },
-                                                    {
-                                                        "name":  "gpt-4-turbo",
-                                                        "maxTokens":  128000
-                                                    },
-                                                    {
-                                                        "name":  "gpt-4o",
-                                                        "maxTokens":  128000
-                                                    },
-                                                    {
-                                                        "name":  "gpt-4o-mini",
-                                                        "maxTokens":  128000
-                                                    }
-                                                ],
-                                     "autoSyncModels":  false,
-                                     "modelSource":  "modelsDev"
-                                 },
-                                 {
-                                     "name":  "Gemini",
-                                     "endpoint":  "https://generativelanguage.googleapis.com",
-                                     "apiKey":  "",
-                                     "models":  [
-                                                    {
-                                                        "name":  "gemini-1.5-pro",
-                                                        "maxTokens":  1000000
-                                                    },
-                                                    {
-                                                        "name":  "gemini-1.5-flash",
-                                                        "maxTokens":  1000000
-                                                    },
-                                                    {
-                                                        "name":  "gemini-1.5-flash-8b",
-                                                        "maxTokens":  1000000
-                                                    }
-                                                ],
-                                     "autoSyncModels":  false,
-                                     "modelSource":  "modelsDev"
-                                 }
-                             ]
-           },
-    "migrations":  {
-                       "migrateToMacroIDFromEmbeddedMacro":  true,
-                       "useQuickAddTemplateFolder":  true,
-                       "incrementFileNameSettingMoveToDefaultBehavior":  true,
-                       "consolidateFileExistsBehavior":  true,
-                       "repairTemplateFileExistsBehavior":  true,
-                       "mutualExclusionInsertAfterAndWriteToBottomOfFile":  true,
-                       "setVersionAfterUpdateModalRelease":  true,
-                       "addDefaultAIProviders":  true,
-                       "removeMacroIndirection":  true,
-                       "migrateFileOpeningSettings":  true,
-                       "backfillFileOpeningDefaults":  true,
-                       "setProviderModelDiscoveryMode":  true,
-                       "migrateProviderApiKeysToSecretStorage":  true
-                   }
+{
+  "choices": [],
+  "inputPrompt": "single-line",
+  "persistInputPromptDrafts": true,
+  "useSelectionAsCaptureValue": true,
+  "devMode": false,
+  "templateFolderPath": "",
+  "announceUpdates": "major",
+  "version": "2.12.3",
+  "globalVariables": {},
+  "onePageInputEnabled": false,
+  "disableOnlineFeatures": true,
+  "enableRibbonIcon": false,
+  "showCaptureNotification": true,
+  "showInputCancellationNotification": false,
+  "enableTemplatePropertyTypes": false,
+  "dateAliases": {
+    "t": "today",
+    "tm": "tomorrow",
+    "yd": "yesterday",
+    "nw": "next week",
+    "nm": "next month",
+    "ny": "next year",
+    "lw": "last week",
+    "lm": "last month",
+    "ly": "last year"
+  },
+  "ai": {
+    "defaultModel": "Ask me",
+    "defaultSystemPrompt": "As an AI assistant within Obsidian, your primary goal is to help users manage their ideas and knowledge more effectively. Format your responses using Markdown syntax. Please use the [[Obsidian]] link format. You can write aliases for the links by writing [[Obsidian|the alias after the pipe symbol]]. To use mathematical notation, use LaTeX syntax. LaTeX syntax for larger equations should be on separate lines, surrounded with double dollar signs ($$). You can also inline math expressions by wrapping it in $ symbols. For example, use $$w_{ij}^{\\text{new}}:=w_{ij}^{\\text{current}}+\\eta\\cdot\\delta_j\\cdot x_{ij}$$ on a separate line, but you can write \"($\\eta$ = learning rate, $\\delta_j$ = error term, $x_{ij}$ = input)\" inline.",
+    "promptTemplatesFolderPath": "",
+    "showAssistant": true,
+    "providers": [
+      {
+        "name": "OpenAI",
+        "endpoint": "https://api.openai.com/v1",
+        "apiKey": "",
+        "models": [
+          {
+            "name": "gpt-3.5-turbo",
+            "maxTokens": 4096
+          },
+          {
+            "name": "gpt-3.5-turbo-16k",
+            "maxTokens": 16384
+          },
+          {
+            "name": "gpt-3.5-turbo-1106",
+            "maxTokens": 16385
+          },
+          {
+            "name": "gpt-4",
+            "maxTokens": 8192
+          },
+          {
+            "name": "gpt-4-32k",
+            "maxTokens": 32768
+          },
+          {
+            "name": "gpt-4-1106-preview",
+            "maxTokens": 128000
+          },
+          {
+            "name": "gpt-4-turbo",
+            "maxTokens": 128000
+          },
+          {
+            "name": "gpt-4o",
+            "maxTokens": 128000
+          },
+          {
+            "name": "gpt-4o-mini",
+            "maxTokens": 128000
+          }
+        ],
+        "autoSyncModels": false,
+        "modelSource": "modelsDev"
+      },
+      {
+        "name": "Gemini",
+        "endpoint": "https://generativelanguage.googleapis.com",
+        "apiKey": "",
+        "models": [
+          {
+            "name": "gemini-1.5-pro",
+            "maxTokens": 1000000
+          },
+          {
+            "name": "gemini-1.5-flash",
+            "maxTokens": 1000000
+          },
+          {
+            "name": "gemini-1.5-flash-8b",
+            "maxTokens": 1000000
+          }
+        ],
+        "autoSyncModels": false,
+        "modelSource": "modelsDev"
+      }
+    ]
+  },
+  "migrations": {
+    "migrateToMacroIDFromEmbeddedMacro": true,
+    "useQuickAddTemplateFolder": true,
+    "incrementFileNameSettingMoveToDefaultBehavior": true,
+    "consolidateFileExistsBehavior": true,
+    "repairTemplateFileExistsBehavior": true,
+    "mutualExclusionInsertAfterAndWriteToBottomOfFile": true,
+    "setVersionAfterUpdateModalRelease": true,
+    "addDefaultAIProviders": true,
+    "removeMacroIndirection": true,
+    "migrateFileOpeningSettings": true,
+    "backfillFileOpeningDefaults": true,
+    "setProviderModelDiscoveryMode": true,
+    "migrateProviderApiKeysToSecretStorage": true
+  }
 }
