@@ -34,4 +34,6 @@ tags:
 - [[04 知识资料/AI/内容安全/垃圾内容识别/AC 自动机与贝叶斯垃圾内容识别/00 AC 自动机与贝叶斯垃圾内容识别知识库索引|AC 自动机与贝叶斯垃圾内容识别知识库索引]]
 ## AI 面试
 
+- [[04 知识资料/AI/AI 面试/小林大模型面试与Agent图解/00 小林大模型面试与Agent图解索引|小林大模型面试与Agent图解]]
+
 - [[04 知识资料/AI/AI 面试/Agent Prompt Skill 面试题库/00 Agent Prompt Skill 面试题库索引|Agent Prompt Skill 面试题库]]
