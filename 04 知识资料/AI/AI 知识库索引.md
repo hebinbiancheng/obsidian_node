@@ -16,6 +16,7 @@ tags:
 
 ## Agent Skills
 
+- [[04 知识资料/AI/Agent Skills/Obsidian Skills 使用说明|Obsidian Skills 使用说明]]
 - [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/andrej-karpathy-skills 内容分析|andrej-karpathy-skills 内容分析]]
 - [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 SKILL|karpathy-guidelines 中文 SKILL]]
 - [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 Cursor 规则.mdc|karpathy-guidelines 中文 Cursor 规则]]
