@@ -4,5 +4,6 @@
   "cssTheme": "Minimal",
   "enabledCssSnippets": [
     "dashboard"
-  ]
+  ],
+  "baseFontSizeAction": true
 }
