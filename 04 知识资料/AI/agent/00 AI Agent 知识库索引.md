@@ -1,7 +1,7 @@
 ---
 title: AI Agent 知识库索引
 created: 2026-06-17
-updated: 2026-06-17
+updated: 2026-07-06
 tags:
   - AI
   - Agent
@@ -20,11 +20,34 @@ AI Agent 的核心不是"换个更强的模型"，而是围绕任务拆解、状
 
 ## 知识库目录
 
-1. [[04 知识资料/AI/agent/Claude Code 多 Agent 实现机制|Claude Code 多 Agent 实现机制]] — Subagent / Fork / Coordinator 三种模式
-2. [[04 知识资料/AI/agent/Harness Engineering 在硅谷爆火|Harness Engineering]] — OpenAI & Anthropic 的 Agent 工程实践
-3. [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/andrej-karpathy-skills 内容分析|Karpathy Guidelines 分析]] — 编码 Agent 行为约束四原则
-4. [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 SKILL|Karpathy Guidelines 中文 SKILL]] — 可复用的中文 Skill
-5. [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 Cursor 规则.mdc|Karpathy Guidelines Cursor 规则]] — Cursor 项目规则版本
+### 面试题
+
+1. [[04 知识资料/AI/agent/AI Agent 面试题与答案|AI Agent 面试题与答案]] — 索引页，拆分为 Agent 核心 / RAG / 系统设计三篇
+2. [[04 知识资料/AI/agent/Agent 架构面试题-Agent核心篇|Agent 核心面试题]] — ReAct、MCP、LangChain vs LangGraph、Skill 标准（10题）
+3. [[04 知识资料/AI/agent/Agent 架构面试题-RAG篇|RAG 面试题]] — 文档分块、Embedding、召回重排、幻觉控制（10题 + 附录）
+4. [[04 知识资料/AI/agent/Agent 架构面试题-系统设计篇|系统设计与基础]] — 多租户、SSE、Java 线程池、HashMap、手撕算法（10题）
+5. [[04 知识资料/AI/agent/AI Agent 50道高频面试题答案合集|50道高频面试题答案合集]] — 50题标准答案
+6. [[04 知识资料/AI/agent/Agent面试真题02-10个Agent架构问题|Agent架构面试真题]] — 10个架构面试问题
+7. [[04 知识资料/AI/agent/腾讯AI Agent后端开发一面|腾讯 Agent 后端一面]] — 腾讯一面面经
+8. [[04 知识资料/AI/agent/大模型算法岗面经-Agent项目拷打实录|Agent项目拷打实录]] — 算法岗深度面经
+
+### 架构与工程实践
+
+9. [[04 知识资料/AI/agent/Claude Code 多 Agent 实现机制|Claude Code 多 Agent 实现机制]] — Subagent / Fork / Coordinator 三种模式
+10. [[04 知识资料/AI/agent/Harness Engineering 在硅谷爆火|Harness Engineering]] — OpenAI & Anthropic 的 Agent 工程实践
+11. [[04 知识资料/AI/agent/Loop Engineering-Prompt该退环境了|Loop Engineering]] — Prompt → Loop 范式转移
+12. [[04 知识资料/AI/agent/AI Agent Skill 实战解析|AI Agent Skill 实战解析]] — Skill 设计与优化
+13. [[04 知识资料/AI/agent/Skill编排的6种依赖关系|Skill编排的6种依赖关系]] — Skill 之间6种依赖模式
+14. [[04 知识资料/AI/agent/16个国民级App蒸馏成Skills盘点|16个App蒸馏成Skills]] — Skills 生态全景
+15. [[04 知识资料/AI/agent/LLM Wiki + Hermes Agent + Obsidian 个人知识库方案|LLM Wiki + Obsidian]] — 知识库方法论
+
+### 指南与规约
+
+16. [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/andrej-karpathy-skills 内容分析|Karpathy Guidelines 分析]] — 编码 Agent 行为约束四原则
+17. [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 SKILL|Karpathy Guidelines 中文 SKILL]] — 可复用的中文 Skill
+18. [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 Cursor 规则.mdc|Karpathy Guidelines Cursor 规则]] — Cursor 项目规则
+19. [[04 知识资料/AI/agent/Hermes Agent 操作本地浏览器|Hermes Agent 操作浏览器]] — 本地浏览器操作指南
+20. [[04 知识资料/AI/Agent评测Harness方案|Agent评测Harness方案]] — 评测方法论
 
 ## 核心地图
 

@@ -546,3 +546,5 @@ Skill 写好怎么用？
 - [[Skill编排的6种依赖关系]] — Skill 之间如何传数据、建立依赖
 - [[AI Agent 50道高频面试题答案合集]] — 含 Skill 面试题（Q20/Q33）
 - [[AI Agent 面试题与答案]] — 含 Skill 质量标准
+- [[16个国民级App蒸馏成Skills盘点]] — Skills 生态全景
+- [[Agent面试真题02-10个Agent架构问题]] — Agent 架构面试

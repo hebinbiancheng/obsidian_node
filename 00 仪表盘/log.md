@@ -95,3 +95,44 @@
 | 专题笔记总数 | ~55 篇 | ~110 篇 |
 | 治理文件 | 0 | 2（SCHEMA + log） |
 | 图表颜色分组 | 0 | 10 组 |
+
+## [2026-07-06] lint + upgrade | LLM Wiki 对齐升级
+
+**首次知识库 Lint 检查结果（169 篇笔记）：**
+- 孤儿页面：102 篇（多数为索引体系内的子篇，Obsidian 双链正常可解析）
+- 超大页面（>200 行）：31 篇，最大 6258 行（`戴斌0805 XMind 解析`）
+- 低交叉引用（<2 出链）：35 篇
+- 独特标签：133 个
+
+**本轮改进：**
+
+1. **创建 Raw 原始资料层**：
+   - 新建 `00 仪表盘/raw/articles/` 目录
+   - 保存 `llm-wiki-hermes-agent-obsidian-2026.html` 为第一条原始记录
+
+2. **更新 SCHEMA.md 对齐 LLM Wiki 标准**：
+   - 新增 Raw 层规范：存放路径、命名规则、溯源用法
+   - 新增溯源标记（Provenance Markers）：`^[raw/...]` 语法
+   - 新增矛盾标记（Contested）：frontmatter 字段 + 处理流程
+   - 新增 Lint 自动检查清单（8 项）
+
+3. **保存新文章**：
+   - `AI/agent/LLM Wiki + Hermes Agent + Obsidian 个人知识库方案.md`（含 5 张图片）
+   - `Kubernetes/Kubernetes DNS解析异常排查指南.md`
+   - `AI/agent/Agent面试真题02-10个Agent架构问题.md`（含 4 张图片）
+
+4. **增强交叉引用（Agent 领域）**：
+   - `16个国民级App蒸馏成Skills盘点.md`：+2 条双链
+   - `AI Agent Skill 实战解析.md`：+2 条双链
+   - `Skill编排的6种依赖关系.md`：+2 条双链
+   - `AI Agent 50道高频面试题答案合集.md`：+1 条双链
+
+5. **拆分超大文件（本轮）**：
+   - `戴斌0805 XMind 解析.md`（6258行）→ `raw/xmind/` 归档为原始素材
+   - `Go 原始 XMind 解析.md`（1824行）→ `raw/xmind/` 归档为原始素材
+   - `AI Agent 面试题与答案.md`（1297行）→ 1个索引页 + 3个专题页（Agent核心篇/ RAG篇/ 系统设计篇）
+   - `AI Infra 落地实战.md`（498行）→ 1个索引页 + 2个专题页（L0 GPU调度/ L1 模型推理）
+
+6. **更新 AI Agent 知识库索引**：目录从5条扩展为20条，按面试题/架构/指南分组
+
+7. **超大文件统计**：已从 31 篇降至 27 篇（最多 581 行）
