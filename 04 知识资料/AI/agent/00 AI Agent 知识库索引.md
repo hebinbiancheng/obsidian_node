@@ -30,6 +30,7 @@ AI Agent 的核心不是"换个更强的模型"，而是围绕任务拆解、状
 6. [[04 知识资料/AI/agent/Agent面试真题02-10个Agent架构问题|Agent架构面试真题]] — 10个架构面试问题
 7. [[04 知识资料/AI/agent/腾讯AI Agent后端开发一面|腾讯 Agent 后端一面]] — 腾讯一面面经
 8. [[04 知识资料/AI/agent/大模型算法岗面经-Agent项目拷打实录|Agent项目拷打实录]] — 算法岗深度面经
+9. [[04 知识资料/AI/agent/MCP 三层次架构深度解析|MCP 三层次架构]] — 角色·能力·协议深度图解
 
 ### 架构与工程实践
 
@@ -39,7 +40,8 @@ AI Agent 的核心不是"换个更强的模型"，而是围绕任务拆解、状
 12. [[04 知识资料/AI/agent/AI Agent Skill 实战解析|AI Agent Skill 实战解析]] — Skill 设计与优化
 13. [[04 知识资料/AI/agent/Skill编排的6种依赖关系|Skill编排的6种依赖关系]] — Skill 之间6种依赖模式
 14. [[04 知识资料/AI/agent/16个国民级App蒸馏成Skills盘点|16个App蒸馏成Skills]] — Skills 生态全景
-15. [[04 知识资料/AI/agent/LLM Wiki + Hermes Agent + Obsidian 个人知识库方案|LLM Wiki + Obsidian]] — 知识库方法论
+16. [[04 知识资料/AI/agent/LLM Wiki + Hermes Agent + Obsidian 个人知识库方案|LLM Wiki + Obsidian]] — 知识库方法论
+17. [[04 知识资料/AI/agent/Agent 主循环终止条件深度解析|Agent 主循环终止条件]] — 凭什么知道该停：三层判停机制
 
 ### 指南与规约
 

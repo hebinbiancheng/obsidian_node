@@ -136,3 +136,24 @@
 6. **更新 AI Agent 知识库索引**：目录从5条扩展为20条，按面试题/架构/指南分组
 
 7. **超大文件统计**：已从 31 篇降至 27 篇（最多 581 行）
+
+## [2026-07-06] merge | K8s DNS 实战复盘并入排查指南
+
+- 保存 raw：`wechat-article-20260706-HHMMSS.html`
+- 合并到 `Kubernetes DNS解析异常排查指南.md`：新增「六、实战复盘」章节
+- 无图片（纯技术文本）
+- 内容：120+ 节点集群 CoreDNS 超时实录（conntrack 表溢出 + Pod 密度过高）
+
+## [2026-07-06] ingest | MCP 三层次架构深度解析
+
+- 保存 raw：`wechat-k8s-network-troubleshooting-2026.html`（命名有误，是 MCP 文章）
+- 新建 `AI/agent/MCP 三层次架构深度解析.md`（含 6 张图片）
+- 更新 AI Agent 知识库索引：面试题区 +1 条（第9条）
+- 内容：MCP 角色层/能力层/协议层深度图解，附 JSON-RPC 2.0 示例和协议演进
+
+## [2026-07-06] ingest | Agent 主循环终止条件深度解析
+
+- 保存 raw：`wechat-article-20260706-HHMMSS.html`
+- 新建 `AI/agent/Agent 主循环终止条件深度解析.md`（无图片）
+- 更新 AI Agent 知识库索引：架构与工程实践区 +1 条（第17条）
+- 内容：4 轮面试对话拆解 Agent 主循环终止问题 — 三层判停机制 + 指纹去重代码 + 分级降级策略
