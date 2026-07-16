@@ -1,5 +1,33 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Obsidian local state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.obsidian/plugins/*/data.json
+.obsidian/plugins/*/*.bak*
+.obsidian/text-generator.json
+
+# Local AI/plugin caches and secrets
+.claude/
+.claudian/
+.smart-env/
+.obsidian/plugins/smart-connections/.smart-env/
+
+# Temporary files
+.trash/
+*.tmp
+*.temp
+*.bak
+*.log
+tmp_*
+conflict-files-obsidian-git.md
+
 # Quartz build artifacts
 node_modules/
 public/
-.quartz/
 .hermes-tmp*
+.quartz/plugins/*/node_modules/
