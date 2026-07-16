@@ -27,11 +27,14 @@ jobs:
         with:
           node-version: 22
 
-      - name: Clean stale .quartz (git submodules don't transfer)
-        run: rm -rf .quartz
-
       - name: Install dependencies
         run: npm install
+
+      - name: Initialize Quartz plugins
+        run: |
+          cp quartz.config.yaml quartz.config.bak.yaml
+          npx quartz create -d content -X copy -s . -l shortest -t default -b hebinbiancheng.github.io/obsidian_node
+          cp quartz.config.bak.yaml quartz.config.yaml
 
       - name: Build Quartz
         run: npx quartz build -d .
