@@ -20,28 +20,28 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
-      body: Source Sans Pro
+      header: Noto Sans SC
+      body: Noto Sans SC
       code: IBM Plex Mono
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
+        light: "#fbfcfe"
+        lightgray: "#e3e8f0"
+        gray: "#9aa6b8"
+        darkgray: "#4b5a6e"
+        dark: "#172033"
+        secondary: "#3159a8"
+        tertiary: "#1d9a86"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#fff23688"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
+        light: "#111827"
+        lightgray: "#273449"
+        gray: "#70809a"
+        darkgray: "#c3cee0"
+        dark: "#f3f6fb"
+        secondary: "#8eafff"
+        tertiary: "#5dd7bf"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#b3aa0288"
 plugins:
@@ -148,6 +148,11 @@ plugins:
     enabled: true
   - source: github:quartz-community/explorer
     enabled: true
+    options:
+      title: "知识导航"
+      folderDefaultState: collapsed
+      folderClickBehavior: link
+      useSavedState: true
     layout:
       position: left
       priority: 50
