@@ -1,0 +1,289 @@
+---
+title: Agent 记忆管理高频面试题
+type: knowledge
+status: evergreen
+source_type: 微信公众号
+created: 2026-07-02
+updated: 2026-07-13
+tags:
+  - AI
+  - Agent
+  - Memory
+  - 短期记忆
+  - 长期记忆
+  - 记忆压缩
+  - 面试
+source: https://mp.weixin.qq.com/s/77seEw1nJDsYeYfe39qqgA
+confidence: high
+---
+
+# Agent 记忆管理高频面试题
+
+> 原文：[微信文章](https://mp.weixin.qq.com/s/77seEw1nJDsYeYfe39qqgA) · 2026-07-02
+> 原始资料：`^[raw/articles/wechat-agent-memory-2026.html]`
+
+---
+
+## 一句话总结
+
+LLM 没有记忆——每次新对话都不知道你是谁。记忆系统让 Agent 理解上下文、减少重复提问、支持复杂任务、个性化回答。核心架构是短期记忆（会话内）+ 长期记忆（跨会话）+ 检索召回 + 写入管理四层。
+
+---
+
+## 1. 短期记忆 vs 长期记忆
+
+| 维度 | 短期记忆 | 长期记忆 |
+|------|---------|---------|
+| **范围** | 一次会话 / 一次任务内 | 跨会话、跨任务 |
+| **内容** | 对话消息、工具调用、中间结果 | 用户偏好、画像、配置、历史决策 |
+| **LangGraph 实现** | `checkpointer`（按 thread_id） | `Store`（跨线程） |
+| **示例** | 用户说「那明天呢」→ 知道指北京天气 | 用户多次说「简洁回答」→ 永记住偏好 |
+
+---
+
+## 2. 为什么不能把所有历史消息放进 Prompt
+
+| 问题 | 说明 |
+|------|------|
+| **成本高** | Prompt 越长，调用越贵、响应越慢 |
+| **噪声多** | 无关历史干扰 LLM，找不到重点 |
+| **内容冲突** | 旧信息已过期（MySQL→PostgreSQL），LLM 不知道信哪条 |
+| **隐私风险** | 不所有对话内容都适合入 Prompt |
+
+> 正确做法：完整记忆存起来，每次只召回当前任务真正需要的部分——通过摘要、检索、过滤和排序。
+
+---
+
+## 3. Memory 架构四层模型
+
+```
+┌─────────────────┐
+│  历史消息检索     │  ← 关键词/向量/标签过滤，组合召回
+├─────────────────┤
+│  记忆写入管理     │  ← 判断哪些值得存、哪些要更新、哪些已过期
+├─────────────────┤
+│  长期记忆(Store) │  ← 用户画像、偏好、业务事实（跨会话）
+├─────────────────┤
+│  短期记忆(checkpointer) │ ← 当前会话消息、工具调用结果
+└─────────────────┘
+```
+
+---
+
+## 4. 短期记忆实现
+
+**自建方案**：`session_id` / `thread_id` 为 key，存 Redis/DB
+
+```json
+{
+  "thread_id": "user-001-chat-001",
+  "messages": [
+    {"role": "user", "content": "帮我查北京天气"},
+    {"role": "assistant", "content": "北京今天晴"}
+  ]
+}
+```
+
+**LangGraph 方案**：`checkpointer`，开发用 `InMemorySaver`，生产用 `PostgresSaver`。
+
+```python
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.graph import StateGraph
+
+checkpointer = InMemorySaver()
+app = graph.compile(checkpointer=checkpointer)
+config = {"configurable": {"thread_id": "user-001-chat-001"}}
+app.invoke({"messages": [{"role": "user", "content": "你好"}]}, config=config)
+```
+
+**LangChain v1.0 `create_agent` 简化版**：
+
+```python
+from langchain.agents import create_agent
+from langgraph.checkpoint.memory import InMemorySaver
+
+agent = create_agent(model="gpt-5.5", tools=[], checkpointer=InMemorySaver())
+agent.invoke(
+    {"messages": [{"role": "user", "content": "我叫张三"}]},
+    config={"configurable": {"thread_id": "chat-001"}},
+)
+```
+
+短期记忆要控制长度——通常做内容摘要或只保留最近几轮。
+
+---
+
+## 5. 长期记忆实现
+
+**LangGraph Store**（跨线程数据持久化）：
+
+```python
+# 写入
+store.put(("users", user_id), "preferences", {"style": "concise"})
+
+# 读取
+prefs = store.get(("users", user_id), "preferences")
+```
+
+**自定义实现**：用户画像表 + 向量数据库做语义检索。
+
+---
+
+## 6. 用户画像实现
+
+```json
+{
+  "user_id": "u_001",
+  "role": "后端开发工程师",
+  "language": "中文",
+  "tech_stack": ["Python", "FastAPI", "LangGraph"],
+  "answer_preference": "先给结论，再解释原因",
+  "business_context": "正在做企业知识库问答系统"
+}
+```
+
+**数据来源三种**：用户明确说明（可信度高）→ 多轮对话归纳（偏好简洁等）→ 业务系统同步（角色/权限/套餐）。
+
+**画像要带上时间戳和来源**：
+
+```json
+{"key": "answer_preference", "value": "简洁直接", "source": "user_explicit", "updated_at": "2026-06-16"}
+```
+
+---
+
+## 7. 记忆召回与无关记忆过滤
+
+**召回三种方式**：
+
+| 方式 | 场景 |
+|------|------|
+| 规则召回 | user_id/memory_type/标签直接查 |
+| 关键词召回 | 明确关键词：项目名、产品名、错误码 |
+| 向量召回 | 语义相似但无精确关键词 |
+
+召回后做排序（相关性+重要性+新旧+可信来源+是否冲突）→ 只取少量最有用的。
+
+**避免无关记忆被召回**：加过滤条件（user_id/project_id）+ 给记忆打标签（preference/profile/project/fact）+ 设置最小相似度阈值 + 二次重排（reranker）+ 限制数量。
+
+---
+
+## 8. 记忆压缩策略
+
+| 策略 | 做法 | 适用 |
+|------|------|------|
+| **窗口截断** | 只保留最近 N 轮 | 简单聊天 |
+| **摘要压缩** | 早期 → 摘要，近期 → 原文 | 中等复杂度 |
+| **结构化提取** | 从对话提取关键事实/决策/约束 | 复杂任务 |
+| **去重合并** | 多条同类记忆合并 | 大规模记忆 |
+| **按重要性保留** | 闲聊丢弃，关键决策保留 | 通用 |
+
+---
+
+## 9. 记忆摘要（Memory Summary）触发策略
+
+| 策略 | 做法 |
+|------|------|
+| **按消息数** | 超 20 轮 → 生成摘要（最常见） |
+| **按 Token 数** | 超 8000 token → 摘要（更精准控制上下文） |
+| **滑动窗口** | 保留最近 10 条原文 + 历史摘要 = `总结 + 最新消息`，主流方案 |
+
+LLM 摘要 Prompt 模板：
+
+```
+请总结历史聊天。保留：用户长期信息、用户目标、重要事实。
+删除：寒暄、重复信息。输出简洁摘要。
+```
+
+---
+
+## 10. Redis 在记忆体系中的四大用途
+
+1. **会话缓存**：最近消息、临时状态、中间结果（高频读写）
+2. **热点记忆**：访问频繁的长期记忆缓存到 Redis，减少 DB 压力
+3. **过期控制**：Redis 天然 TTL，适合有生命周期的记忆
+4. **分布式锁/任务状态**：多 Agent 实例并发时控制冲突，避免状态覆盖
+
+---
+
+## 6. 记忆摘要（Memory Summary）
+
+| 方式 | 做法 |
+|------|------|
+| **按轮次** | 每 N 轮对话生成一次摘要，替换旧对话 |
+| **按时间** | 定期批量总结，保留关键决策 |
+| **按事件** | 任务完成后生成结构化摘要 |
+| **混合** | 近期保留原文，远期保留摘要 |
+
+实现函数签名：`summarize_messages(messages, prompt) → summary_text`
+
+---
+
+## 7. 记忆压缩策略（Agent 面试重点）
+
+> 模型上下文窗口有限 + 多次工具调用的回结果…记忆膨胀 → 必须压缩。
+
+| 策略 | 做法 | 适用 |
+|------|------|------|
+| **摘要式** | 历史 → LLM 生成摘要，只保留摘要 | 简单对话 |
+| **蒸馏式** | 从历史中提取关键事实、决策、约束 | 复杂任务 |
+| **分层式** | 近期原文 + 中期摘要 + 远期骨架 | 长会话 |
+| **重要性评分** | 每条记忆打分，删低分保留高分 | 任意场景 |
+
+---
+
+## 8. 用户画像
+
+```json
+{
+  "user_id": "u-001",
+  "preferences": {
+    "language": "zh-CN",
+    "response_style": "concise",
+    "tech_stack": ["Python", "LangGraph"]
+  },
+  "history": {
+    "last_project": "智能客服RAG系统",
+    "common_questions": ["天气查询", "文档检索"]
+  }
+}
+```
+
+每次对话开始时注入用户画像到 System Prompt。
+
+---
+
+## 9. 记忆召回
+
+| 方式 | 说明 |
+|------|------|
+| **关键词检索** | BM25，精确匹配 |
+| **向量检索** | Embedding → 语义相似 |
+| **标签/元数据过滤** | 按时间、类型、重要性过滤 |
+| **混合** | 关键词 + 向量 + 过滤，多路召回 |
+
+---
+
+## 10. Agent 遗忘机制
+
+- **TTL 过期**：短期记忆超时自动清除
+- **容量上限**：长期记忆达上限时按 LRU 或重要性淘汰
+- **手动遗忘**：用户说「忘记刚才说的」→ 删除最近 N 轮
+
+---
+
+## 面试要点
+
+1. 短期记忆是会话内的上下文，长期记忆是跨会话的知识
+2. 不能把所有历史塞 Prompt → 成本、噪声、冲突、隐私
+3. 四层架构：短期 + 长期 + 检索召回 + 写入管理
+4. 记忆压缩三种策略：摘要式、蒸馏式、分层式
+5. LangGraph 术语：`checkpointer` → 短期，`Store` → 长期
+
+---
+
+## 相关笔记
+
+- [[AI Agent 与 RAG 面试题合集索引]] — 47 题全量索引（含记忆机制 3 题）
+- [[Claude Code compact 上下文压缩深度解析]] — /compact 9 章模板压缩
+- [[Agent 架构面试题-Agent核心篇]] — Agent 核心面试 10 题
