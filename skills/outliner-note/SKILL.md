@@ -1,6 +1,6 @@
 ---
 name: outliner-note
-description: Generate structured markdown outline notes from text content for Obsidian. Use when user wants to summarize long articles, extract key points from documents, create study notes from lectures or speeches, or organize reading notes. Supports both Chinese and English content. Keywords: outline, summary, study notes, reading notes, 大纲笔记, 读书笔记, 文章总结, 内容提炼
+description: "Generate structured markdown outline notes from text content for Obsidian. Use when user wants to summarize long articles, extract key points from documents, create study notes from lectures or speeches, or organize reading notes. Supports both Chinese and English content. Keywords: outline, summary, study notes, reading notes, 大纲笔记, 读书笔记, 文章总结, 内容提炼"
 ---
 
 # Outliner Note Generator
