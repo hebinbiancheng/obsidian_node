@@ -1,115 +1,104 @@
 ---
 title: AI Agent 知识库索引
-created: 2026-06-17
-updated: 2026-07-06
+type: moc
+status: evergreen
 tags:
   - AI
   - Agent
-  - 知识库索引
-status: evergreen
-confidence: medium
+  - 索引
 ---
 
 # AI Agent 知识库索引
 
-> AI Agent 相关知识的统一入口，涵盖多 Agent 机制、Harness Engineering 和 Agent Skills。
+---
 
-## 一句话总结
+## 面试题
 
-AI Agent 的核心不是"换个更强的模型"，而是围绕任务拆解、状态隔离、工具权限、异步通信、验收标准和反馈闭环建立一套可控的协作系统。
+- [[面试题/Agent 架构面试题-Agent核心篇]] — Agent vs LLM、ReAct、MCP、Skill 标准（10题）
+- [[面试题/Agent 架构面试题-系统设计篇]] — 多租户、SSE、线程池、HashMap（10题）
+- [[面试题/AI Agent 50道高频面试题答案合集]] — 50题标准答案
+- [[面试题/Agent面试真题02-10个Agent架构问题]] — 10个架构面试问题
+- [[面试题/大模型算法岗面经-Agent项目拷打实录]] — 算法岗深度面经
+- [[面试题/腾讯AI Agent后端开发一面]] — 腾讯一面面经
+- [[面试题/DeepSeek Agent 全流程面试题一面详解]] — 12题全链路
+- [[AI Agent 与 RAG 面试题合集索引]] — 47题全量索引
 
-## 知识库目录
+---
 
-### 面试题
+## 工程实践
 
-1. [[04 知识资料/AI/agent/AI Agent 面试题与答案|AI Agent 面试题与答案]] — 索引页，拆分为 Agent 核心 / RAG / 系统设计三篇
-2. [[04 知识资料/AI/agent/Agent 架构面试题-Agent核心篇|Agent 核心面试题]] — ReAct、MCP、LangChain vs LangGraph、Skill 标准（10题）
-3. [[04 知识资料/AI/agent/Agent 架构面试题-RAG篇|RAG 面试题]] — 文档分块、Embedding、召回重排、幻觉控制（10题 + 附录）
-4. [[04 知识资料/AI/agent/Agent 架构面试题-系统设计篇|系统设计与基础]] — 多租户、SSE、Java 线程池、HashMap、手撕算法（10题）
-5. [[04 知识资料/AI/agent/AI Agent 50道高频面试题答案合集|50道高频面试题答案合集]] — 50题标准答案
-6. [[04 知识资料/AI/agent/Agent面试真题02-10个Agent架构问题|Agent架构面试真题]] — 10个架构面试问题
-7. [[04 知识资料/AI/agent/腾讯AI Agent后端开发一面|腾讯 Agent 后端一面]] — 腾讯一面面经
-8. [[04 知识资料/AI/agent/大模型算法岗面经-Agent项目拷打实录|Agent项目拷打实录]] — 算法岗深度面经
-9. [[04 知识资料/AI/agent/MCP 三层次架构深度解析|MCP 三层次架构]] — 角色·能力·协议深度图解
+- [[工程实践/Agent 路由系统设计指南]] — 三层架构、路由策略、降级机制、10个避坑
+- [[工程实践/Agent 主循环终止条件深度解析]] — 指纹去重+结构化终止+硬上限
+- [[工程实践/Agent vs Workflow 五个维度对比]] — 决策权、灵活性五维对比
+- [[工程实践/AI Agent 四大框架深度对比]] — LangChain/AutoGen/CrewAI/Claude SDK
+- [[工程实践/Agent 性能优化面试题]] — Token成本、响应速度、监控、故障定位
+- [[工程实践/Harness Engineering 在硅谷爆火]] — Harness 概念与实践
+- [[工程实践/Hermes Agent 操作本地浏览器]] — CDP 抓取微信文章
 
-### 架构与工程实践
+---
 
-9. [[04 知识资料/AI/agent/Claude Code 多 Agent 实现机制|Claude Code 多 Agent 实现机制]] — Subagent / Fork / Coordinator 三种模式
-10. [[04 知识资料/AI/agent/Harness Engineering 在硅谷爆火|Harness Engineering]] — OpenAI & Anthropic 的 Agent 工程实践
-11. [[04 知识资料/AI/agent/Loop Engineering-Prompt该退环境了|Loop Engineering]] — Prompt → Loop 范式转移
-12. [[04 知识资料/AI/agent/AI Agent Skill 实战解析|AI Agent Skill 实战解析]] — Skill 设计与优化
-13. [[04 知识资料/AI/agent/Skill编排的6种依赖关系|Skill编排的6种依赖关系]] — Skill 之间6种依赖模式
-14. [[04 知识资料/AI/agent/16个国民级App蒸馏成Skills盘点|16个App蒸馏成Skills]] — Skills 生态全景
-16. [[04 知识资料/AI/agent/LLM Wiki + Hermes Agent + Obsidian 个人知识库方案|LLM Wiki + Obsidian]] — 知识库方法论
-17. [[04 知识资料/AI/agent/Agent 主循环终止条件深度解析|Agent 主循环终止条件]] — 凭什么知道该停：三层判停机制
+## Skill
 
-### 指南与规约
+- [[Skill/Agent Skill 本质与设计面试题解析]] — 渐进式加载、vs MCP、开放标准
+- [[Skill/Skill 版本管理完全指南]] — changelog→语义化版本→Git
+- [[Skill/Skill编排的6种依赖关系]] — 6种依赖模式
+- [[Skill/16个国民级App蒸馏成Skills盘点]] — Skills 生态产品
+- [[Skill/AI Agent Skill 实战解析]] — Skill 实战攻略
 
-16. [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/andrej-karpathy-skills 内容分析|Karpathy Guidelines 分析]] — 编码 Agent 行为约束四原则
-17. [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 SKILL|Karpathy Guidelines 中文 SKILL]] — 可复用的中文 Skill
-18. [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 Cursor 规则.mdc|Karpathy Guidelines Cursor 规则]] — Cursor 项目规则
-19. [[04 知识资料/AI/agent/Hermes Agent 操作本地浏览器|Hermes Agent 操作浏览器]] — 本地浏览器操作指南
-20. [[04 知识资料/AI/Agent评测Harness方案|Agent评测Harness方案]] — 评测方法论
+---
 
-## 核心地图
+## Memory
 
-```text
-AI Agent 知识体系
-├── 多 Agent 协作（Claude Code 源码视角）
-│   ├── 常规 Subagent：父子型任务拆分
-│   ├── Fork Subagent：缓存友好的分身机制
-│   └── Coordinator 模式：真正的并行协作
-│
-├── Harness Engineering（工程化 Agent）
-│   ├── 工作台设计：文件结构、工具权限、沙箱环境
-│   ├── 验收标准：明确完成条件、可验证目标
-│   ├── 反馈闭环：生成器 + 评估器分离
-│   └── 约束系统：架构规则、Lint、CI Gate
-│
-└── Agent Skills（行为约束）
-    ├── 编码前思考：暴露假设和歧义
-    ├── 简洁优先：最小充分解
-    ├── 精准修改：每行 diff 可追溯
-    └── 目标驱动：可验证成功标准
-```
+- [[Memory/Agent 记忆管理高频面试题]] — 短期/长期、压缩、召回、遗忘
 
-## 精读优先级
+---
 
-### 入门必看
-- [[04 知识资料/AI/agent/Harness Engineering 在硅谷爆火|Harness Engineering]] — 理解 Agent 工程化的核心理念
-- [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/andrej-karpathy-skills 内容分析|Karpathy Guidelines]] — 编码 Agent 的行为约束
+## RAG
 
-### 进阶深入
-- [[04 知识资料/AI/agent/Claude Code 多 Agent 实现机制|Claude Code 多 Agent 实现机制]] — 源码级多 Agent 设计
+- [[RAG/RAG 面试题合集]] — 20题 RAG 精华
+- [[RAG/RAG 进阶面试题 7道场景题]] — 效果评估、GraphRAG、嵌入模型选型
+- [[RAG/GraphRAG 向量库 vs 知识图谱深度解析]] — 多维关系 vs 语义相似
+- [[RAG/Agent 架构面试题-RAG篇]] — RAG 深度面试 10题
 
-### 实战参考
-- [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 SKILL|中文 SKILL]] — 可直接安装使用
-- [[04 知识资料/AI/Agent Skills/Karpathy Guidelines/karpathy-guidelines 中文 Cursor 规则.mdc|Cursor 规则]] — Cursor 项目规则
+---
 
-## 可迁移的 5 条 Multi-Agent 设计原则
+## Function Calling + MCP
 
-1. **上下文隔离要按字段粒度做** — 不粗暴全共享或全新建
-2. **通信走消息，不走同步函数调用** — 天然异步、支持并发
-3. **工具权限要分级管控** — 防止子 Agent 递归派发
-4. **缓存友好是一种架构能力** — prompt 前缀复用降低成本
-5. **并行优先，协调者负责合成** — 真正价值来自并行
+- [[FC-MCP/Function Calling 与 MCP 全解]] — FC原理+SFT+RLHF+MCP对比
+- [[FC-MCP/MCP 三层次架构深度解析]] — 角色·能力·协议
+- [[FC-MCP/推理模型不支持MCP 生成范式冲突]] — 思维链 vs 工具调用
 
-## Harness Engineering 三个核心问题
+---
 
-1. **AI 在哪里干活？** — 代码仓库、文件系统、文档目录、沙箱
-2. **AI 用什么干活？** — bash、测试、lint、日志、DevTools
-3. **AI 怎么知道自己干得对不对？** — 测试、验收标准、评估器、反馈
+## Loop Engineering
 
-## 适合沉淀的问题
+- [[Loop-Engineering/Loop Engineering 全解]] — 四代演进+双层架构+14步路线图
 
-- Subagent、Fork Subagent、Coordinator 三种模式分别适合什么场景？
-- 如何设计子 Agent 的工具权限表？
-- Harness Engineering 和传统 DevOps 有什么异同？
-- 如何把 Karpathy Guidelines 四原则融入日常 AI 编码工作流？
-- 为什么 AI 自评不可靠？如何设计评估器？
+---
 
-## 关联笔记
+## Claude Code
 
-- [[04 知识资料/AI/AI 知识库索引|AI 知识库索引]]
-- [[04 知识资料/AI/模型工具/Agnes AI/00 Agnes AI 知识库索引|Agnes AI 模型工具]]
-- [[04 知识资料/知识库总索引|知识库总索引]]
+- [[Claude-Code/Claude Code 多 Agent 机制全解]] — Subagent/Coordinator/Fork
+- [[Claude-Code/Claude Code 缓存优化四大杀手]] — K/V Cache + 前缀匹配
+- [[Claude-Code/Claude Code compact 上下文压缩深度解析]] — 9章模板+两层皮
+- [[Claude-Code/Claude Code 百万行代码库最佳实践]] — 五层Harness+LSP
+
+---
+
+## 产品与教程
+
+- [[产品-教程/Vibe Coding 从0到1保姆级教程]] — 20步 + CloudBase一条龙
+- [[产品-教程/Vibe Coding 两大基石 Prompt]] — 第一性原理+对抗式审查
+- [[产品-教程/OCR 到识图 五层鸿沟]] — 感知→结构→语义→推理→对齐
+
+---
+
+## 相关索引
+
+- [[AI Agent 面试题与答案]] — 面试题拆分为三个专题
+- [[LLM Wiki + Hermes Agent + Obsidian 个人知识库方案]] — 知识库搭建
+- [[../AI 知识库索引|AI 知识库索引]] — 全局 AI 知识库入口
+- [[../后端面试/CDN 缓存原理与面试题]]
+- [[../后端面试/分布式ID雪花算法面试题]]
+- [[../后端面试/发布灰度回滚 风险控制面试题]]
+- [[../基础设施/K8s Service 类型与 Ingress 面试题]]
